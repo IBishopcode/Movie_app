@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import { Router } from '@reach/router'
+import WelcomeToMovies from './components/WelcomeToMovies';
+import Details from './components/Details';
+import Favorites from './components/Favorites';
+import Header from './components/Header';
+import Login from './components/Login';
+import LogReg from './views/LogReg';
 import './App.css';
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <Header />
+    <Router>
+      <LogReg path='/logreg' />
+      <Login path='/login'/>
+      <WelcomeToMovies default path="/movie" />
+      <Details  path="/movie/:id" />
+      <Favorites path="/movie/favorites"/>
+    </Router>
     </div>
   );
 }

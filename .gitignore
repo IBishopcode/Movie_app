@@ -209,4 +209,4 @@ $RECYCLE.BIN/
 
 # adding a key.js which stores api key
 
-key.js
+config.json
