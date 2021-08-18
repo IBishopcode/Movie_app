@@ -83,5 +83,29 @@ module.exports = {
 		res.json({
 			message: "You have successfully logged out",
 		})
+	},
+	removeFavorite: (req, res) => {
+		console.log("inside remove favorite")
+		console.log("get favorite id" + req.params.id)
+		//what are the next three lines going to do for us ?
+		//recieve user taken from client, decode data from user token and store the users id into user_id variable,
+		//console log user_id
+		const decodedJwt = jwt.decode(req.cookies.usertoken, {complete: true });
+        const user_id = decodedJwt.payload.user_id;// payload object holds more than just user id
+		console.log("user id: " + user_id)
+		User.findByIdAndUpdate(user_id, {
+			$pull: { favorites: req.params.id },
+		},
+			{new:true, useFindAndModify:false}
+		)
+			.populate("favorites", "-__v")
+			.then((updatedUser) => {
+				console.log(updatedUser)
+				res.json(updatedUser)
+			})
+			.catch((err) => {
+				res.status(400).json(err)
+			})
+		
 	}
 }

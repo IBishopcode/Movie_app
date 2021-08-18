@@ -5,7 +5,7 @@ import RegisterUser from "../components/RegisterUser";
 
 const LogReg = () => {
     return (
-        <div className="container-flex">
+        <div className="logRegContainer">
             <Login />
             <hr />
             <RegisterUser />

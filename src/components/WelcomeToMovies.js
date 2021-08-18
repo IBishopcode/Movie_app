@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 //import configdata from './config.json'
-import { Link, navigate } from '@reach/router'
+import { navigate } from '@reach/router'
 
 const baseURL = 'https://image.tmdb.org/t/p/w300'
 
@@ -9,22 +9,19 @@ const WelcomeToMovies = (props) => {
     const [popularMovies, setPopularMovies] = useState([])
     useEffect(() => {
         axios.get('http://localhost:7894/api/movie')
-                 //https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1
             .then((res) => {
                 console.log(res.data.results)
                 setPopularMovies(res.data.results)
             })
             .catch((err) => {
                 console.log("There was an error")
-               // console.log(res.status(400).json(err))
             })  
     }, [])
 
     return (
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: "center", background:"#EFEFEF" }}>
             <div>
-                <h2 style={{display:'inline-block'}}>Popular Movies</h2>
-                <Link style={{display:'inline-block'}}to="/movie/favorites">Favorites</Link> 
+                <h2 style={{display:'inline-block', color:"black",fontWeight:"bold"}}>Popular Movies</h2>
             </div>
             {
                 popularMovies.map((movie, index) => {

@@ -1,38 +1,83 @@
-.App {
+
+.header-links{
+  /* padding-left:1100px; */
+  background-color: #333333;
+}
+
+.Link-a{
+  color:black;
+  padding: 20px;
+  text-decoration: none;
+}
+
+.logButton{
+  color:yellow;
+  font-size: 18px;
+  font-weight: bold;
+  background: #333333;
+  margin-left: 15px;
+  margin-top:5px;
+  padding:5px 5px;
+  border:none;
+}
+
+
+
+.error-text {
+  color: red;
+  margin-left: 25px;
+  margin-bottom: 25px;
+}
+
+.formContainer{
+  margin:0px;
   text-align: center;
+  color:black;
+  height:100%
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.formContainer button{
+  background: linear-gradient(#F2C452,#FADB92);
+  padding: 10px;
+  border: 1px solid;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 3px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.registerContainer{
+  text-align: center;
+  margin:0px;
+  color:black;
+  height:100%
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.registerContainer button{
+  background: linear-gradient(#F2C452,#FADB92);
+  padding: 10px;
+  border: 1px solid ;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+label{
+  width:80px;
+  display: inline-block;
 }
 
-.App-link {
-  color: #61dafb;
+hr{
+  margin:0px
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form div{
+  margin-bottom: 20px;
 }
+/* input, select {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+} */

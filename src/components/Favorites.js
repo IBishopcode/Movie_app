@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import { Link, navigate } from '@reach/router'
+import Delete from './Delete'
+import { navigate} from '@reach/router'
 
 const baseURL = 'https://image.tmdb.org/t/p/w300'
 
@@ -14,22 +15,34 @@ const Favorites = (props) => {
             })
             .catch((err) => {
                 console.log("There was an error")
+                if(err.response.status === 401) {
+					navigate('/login');
+				}
             })  
     }, [])
+    const favoritesUpdate = (movieId) => {
+        let updatedFavoritesArray = favoriteMovies.filter((favorite) => {
+            return favorite._id !== movieId
+        })
+        setFavoriteMovies(updatedFavoritesArray)
+    }
 
     return (
-        <div style={{ textAlign: "center" }}>
-            <div>
-                <h1 style={{display:'inline-block'}}>Favorite Movies</h1>
-                <Link style={{ display: 'inline-block' }} to="/">Home</Link>
-            </div>
+        <div style={{textAlign:"center", backgroundColor:"#EFEFEF"}} >
+            <h1 style={{margin:"0px"}}>Favorite Movies</h1>
             {
                 favoriteMovies.map((favorite, index) => {
                     
                     return (
                         <>
-                            <span key={index}>{favorite.title}</span>
-                            <img style={{ display: 'inline-block', margin: "10px" }} src={baseURL + favorite.poster_path} alt={favorite.title} />
+                            <div style = {{textAlign:"center"}} key={index}>
+                                <h3>{favorite.title}</h3>
+                                <img style={{width:"200px", display:"inline-block", margin:"auto"}} src={baseURL + favorite.poster_path} alt={favorite.title} />
+                                <p style={{ margin: "0px", display: "inline-block", fontWeight: "bold", verticalAlign: "top", width: "100px" }}>{favorite.tagline}</p>
+                                <Delete movieId={favorite._id} afterDelete={ favoritesUpdate }/>
+                                
+                            </div>
+                            
                         </>
                     )
                 })

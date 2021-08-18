@@ -28,6 +28,7 @@ const login = event => {
         navigate("/movie");
         setEmail ("")
         setPassword("")
+        
     })
     .catch(err => {
         console.log(err.response);
@@ -36,7 +37,7 @@ const login = event => {
 };
 
 return (
-    <div>
+    <div className="formContainer">
     <h2>Login</h2>
     <p className="error-text">{errorMessage ? errorMessage : ""}</p>
     <form onSubmit={login}>

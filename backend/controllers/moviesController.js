@@ -87,7 +87,6 @@ module.exports = {
                 res.status(400).json(err)
             }));
     },
-    //SHould this be a find favorites by userID?
     findFavorites: (req, res) => {
         const decodedJwt = jwt.decode(req.cookies.usertoken, { complete: true });
         const user_id = decodedJwt.payload.user_id;
@@ -102,7 +101,13 @@ module.exports = {
                 console.log(err)
                 res.json(err)
             })
-    }
+    },
+    delete: (req, res) =>
+    {
+    Movie.findByIdAndDelete(req.params.id)
+    .then(deletedMovie => res.json(  deletedMovie ))
+    .catch(err => res.json({ message: "Something went wrong", error: err }));
+}
 
 }
 

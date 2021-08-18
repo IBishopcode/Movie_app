@@ -58,7 +58,7 @@ const register = e => {
 };
 
 return (
-    <div>
+    <div className="registerContainer">
     <h2>Register</h2>
     {
         confirmReg ? 
@@ -70,7 +70,7 @@ return (
         <label>Username</label>
         {
             errs.username ? 
-            <span className="error-text">{ errs.username.message }</span>
+            <p className="error-text">{ errs.username.message }</p>
             : null
         }
         <input
@@ -84,7 +84,7 @@ return (
         <label>Email</label>
         {
             errs.email? 
-            <span className="error-text">{ errs.email.message }</span>
+            <p className="error-text">{ errs.email.message }</p>
             : null
         }
         <input
@@ -98,7 +98,7 @@ return (
         <label>Password</label>
         {
             errs.password ? 
-            <span className="error-text">{ errs.password.message }</span>
+            <p className="error-text">{ errs.password.message }</p>
             : null
         }
         <input
@@ -112,7 +112,7 @@ return (
         <label>Confirm Password</label>
         {
             errs.confirmPassword? 
-            <span className="error-text">{ errs.confirmPassword.message }</span>
+            <p className="error-text">{ errs.confirmPassword.message }</p>
             : null
         }
         <input

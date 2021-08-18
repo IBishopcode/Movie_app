@@ -37,17 +37,21 @@ const Details = (props) => {
             
     })
     }
+    if (!movie.genres) {
+        return <span>Loading...</span>;
+    }
     return (
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: "center", background: "#EFEFEF", color:"black" }}>
             <div><h1 style={{display:'inline-block'}}>{movie.original_title}</h1>
-            <Link to="/">Home</Link> </div>
-            
+        </div>
             <img style={{ display: 'inline-block', margin: "10px" }} src={baseURL + movie.poster_path} alt={movie.title} />
-            <span>{movie.overview}</span>
-            <span>{movie.vote_average}</span>
+            <p style={{ margin: "auto", width: "400px" }}>{movie.overview}</p>
+            <p>Duration(minutes): { movie.runtime}</p>
+            <p>Genre: { movie.genres[0]["name"]}</p>
+            <p>voter rating : {movie.vote_average}</p>
             {/* {successMessage ? <p>Added to Favorites</p> : ""}
             {errorMessage ? <p>Could not add to Favorites</p> : ""} */}
-            <button onClick={(e) => favoritesHandler(e,movie) }>Add to Favorites</button>
+            <button style={{border:"1px solid gray ", background:"gray", fontSize:"20px", color:"yellow", padding:" 6px 8px", borderRadius:"5px",}}onClick={(e) => favoritesHandler(e,movie) }>Add to Favorites</button>
         </div>
     )
     

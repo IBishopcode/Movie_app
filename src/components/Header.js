@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, navigate } from '@reach/router';
 import axios from 'axios';
+// import tmdb from './assets/tmdb'
+
 
 const Header = (props) => {
 	const logout = (e) => {
@@ -24,15 +26,13 @@ const Header = (props) => {
 };
 
 	return (
-		<div className="header">
-			{/* <Link to="/restaurants">
-				<img src="/restaurant.jpg" alt="logo" className="logo" />
-			</Link> */}
-			<div className="header-links">
-                <Link to="/movie">View Movies</Link>
-				<Link to="/movie/favorites">Favorites</Link>
-				<button onClick={(e) => logout(e)}>Logout</button>
-			</div>
+        <div className="header-links">
+            
+            <img style={{ width: "150px", marginTop: "10px", paddingLeft: "20px" }} src="/assets/tmdb.JPG" alt="tmdb-logo" />
+            <Link to="/login" style={{ textDecoration: 'none', fontWeight:"bold", fontSize:"18px", color:"yellow",paddingLeft:"860px" }}>Login</Link>
+            <Link to="/movie" style={{ textDecoration: 'none', fontWeight:"bold", fontSize:"18px", color:"yellow", paddingLeft:"15px" }}>Home</Link>
+            <Link  to="/movie/favorites" style={{ textDecoration: 'none',fontWeight:"bold", fontSize:"18px", color:"yellow",paddingLeft:"15px" }}>Favorites</Link>
+            <button className="logButton" onClick={(e) => logout(e)}>Logout</button>
 		</div>
 	)
 }
